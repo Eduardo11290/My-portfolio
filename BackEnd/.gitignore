@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
+
+# Local secrets (use user-secrets or env vars for real keys)
+appsettings.Development.json
+
+# Rider / VS
+.idea/
+.vs/
