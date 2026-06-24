@@ -144,28 +144,36 @@ function StackCard({
             </div>
           </div>
 
-          {/* 3D-tilt gradient visual */}
           <div className="relative min-h-[240px] p-6 md:min-h-full">
             <Tilt max={10} className="group h-full">
-              <div
-                className={`relative flex h-full min-h-[200px] items-end overflow-hidden rounded-2xl bg-gradient-to-br ${project.gradient} p-7`}
-              >
-                {/* depth: number floats above the panel */}
-                <span
-                  className="font-display text-[7rem] leading-none font-bold text-ink/15"
-                  style={{ transform: "translateZ(60px)" }}
-                >
-                  0{index + 1}
-                </span>
-                <span
-                  className="absolute right-6 top-6 font-display text-lg font-medium text-ink/80"
-                  style={{ transform: "translateZ(40px)" }}
-                >
-                  {project.title}
-                </span>
-                {/* soft sheen */}
-                <span className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent" />
+              {project.image ? (
+              <div className="relative flex flex-col h-full w-full overflow-hidden rounded-2xl bg-ink-raised">
+                <div className="flex-1 w-full h-full overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-contain bg-black/20" 
+                  />
+                </div>
               </div>
+            ) : (
+              <div className={`relative flex h-full min-h-[200px] items-end overflow-hidden rounded-2xl bg-gradient-to-br ${project.gradient} p-7`}>
+                
+                  <span
+                    className="font-display text-[7rem] leading-none font-bold text-ink/15"
+                    style={{ transform: "translateZ(60px)" }}
+                  >
+                    0{index + 1}
+                  </span>
+                  <span
+                    className="absolute right-6 top-6 font-display text-lg font-medium text-ink/80"
+                    style={{ transform: "translateZ(40px)" }}
+                  >
+                    {project.title}
+                  </span>
+                  <span className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent" />
+                </div>
+              )}
             </Tilt>
           </div>
         </div>

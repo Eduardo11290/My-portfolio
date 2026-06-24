@@ -23,7 +23,6 @@ export const profile = {
     "I recently wrapped up a developer traineeship at Netrom, which I earned through a competitive selection at LigaAC Labs — where I built layered ASP.NET Core backends and wired up LLM agents that reason over real data. I'm happiest in the messy middle of a project: system design, security, and the edge cases that separate something that runs from something you'd actually ship. Away from the editor, you'll find me on a football pitch, in the pool, or at the gym.",
 } as const;
 
-/** About-section portrait. Drop the image in /public and update `src`. */
 export const aboutPhoto = {
   src: "/about.png",
   alt: "Eduard Stefoni",
@@ -34,7 +33,7 @@ export const socials = [
   {
     label: "LinkedIn",
     handle: "/in/eduard-stefoni",
-    href: "https://www.linkedin.com/in/eduard-stefoni",
+    href: "https://www.linkedin.com/in/eduard-stefoni-929a04371",
   },
   { label: "Email", handle: profile.email, href: `mailto:${profile.email}` },
 ] as const;
@@ -62,14 +61,16 @@ export type Project = {
   description?: string[];
   /** What the project taught you — closing note in the case study. */
   learned?: string;
+  image?: string;
 };
 
 export const projects: Project[] = [
   {
     id: "smart-shopping-assistant",
-    title: "SmartShoppingAssistant",
+    title: "Smart Shopping Assistant",
     year: "2026",
     category: "AI · Full-Stack",
+    image: "/SmartShop.png",
     summary:
       "An AI shopping assistant that builds your cart to fit a budget. My final project at Netrom LigaAC Labs — a 3-layer .NET backend and a React + TypeScript SPA, built around one principle: the AI proposes, deterministic C# decides.",
     stack: [
@@ -99,6 +100,7 @@ export const projects: Project[] = [
     title: "AutoRent Premium",
     year: "2025",
     category: "Full-Stack",
+    image: "/AutoRent.png",
     summary:
       "A complete car-rental platform I built for my university OOP course. The brief was backend-only — design a clean .NET 8 Web API — but I already had a rough frontend lying around, so I rebuilt and redesigned it into a proper React + Vite SPA and deployed the whole thing for real.",
     stack: ["C#", "ASP.NET Core (.NET 8)", "React", "Vite", "MonsterASP"],
@@ -119,6 +121,7 @@ export const projects: Project[] = [
     title: "Car Dealership Review",
     year: "2025",
     category: "Auth · Full-Stack",
+    image: "/CarDealership.png",
     summary:
       "A review platform where users sign up, browse dealerships, and leave authenticated reviews. Built to walk an auth flow end to end — Django REST + React, containerized with Docker so dev matches prod.",
     stack: ["React", "Django", "DRF", "Python", "Docker", "REST API"],
@@ -139,6 +142,7 @@ export const projects: Project[] = [
     title: "SecureVault",
     year: "2025",
     category: "Security · Ongoing",
+    image: "/SecureFile.png",
     summary:
       "A high-security digital safe: AES-256-GCM encryption before files ever touch the disk, burn-after-reading share links, and Bcrypt PIN gating. Still in progress — and the project that pulled me toward security.",
     stack: ["FastAPI", "Python 3.13", "PostgreSQL", "Redis", "AES-256-GCM", "Docker"],
@@ -260,7 +264,5 @@ export const nav = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Certifications", href: "#certifications" },
-  { label: "Lab", href: "#lab" },
   { label: "Reviews", href: "#reviews" },
-  { label: "Contact", href: "#contact" },
 ] as const;
