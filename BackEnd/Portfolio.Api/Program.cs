@@ -9,11 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
-// --- Database (SQLite) ---
 var connectionString = builder.Configuration.GetConnectionString("PortfolioContext")
     ?? "Data Source=portfolio.db";
 builder.Services.AddDbContext<PortfolioDbContext>(options =>
-    options.UseSqlite(connectionString));
+    options.UseSqlServer(connectionString));
 
 // --- Repositories ---
 builder.Services.AddScoped<IContactMessageRepository, ContactMessageRepository>();
@@ -44,7 +43,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Create the SQLite database/schema on first run.
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
